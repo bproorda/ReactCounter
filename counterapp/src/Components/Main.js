@@ -22,7 +22,8 @@ class Main extends React.Component {
         return (
           <main>
             <h2>Main!</h2>
-          <h3>the Count</h3>
+        <h3>the Count = {this.state.count}</h3>
+        <button>Click!</button>
 
           </main>
         )
