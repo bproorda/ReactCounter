@@ -14,6 +14,12 @@ class Main extends React.Component {
         };
       }
   
+IncreaseClick = (event) => {
+    event.preventDefault();
+    var count = this.state.count + 1;
+    this.setState({ count });
+}
+
     render() {
         // Re-rendering is automatic when state changes
         // console.log('Rendering!', this.state );
@@ -23,7 +29,7 @@ class Main extends React.Component {
           <main>
             <h2>Main!</h2>
         <h3>the Count = {this.state.count}</h3>
-        <button>Click!</button>
+        <button onClick={this.IncreaseClick}>Click To Increase!</button>
 
           </main>
         )
