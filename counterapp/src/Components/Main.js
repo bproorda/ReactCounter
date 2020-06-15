@@ -19,7 +19,15 @@ IncreaseClick = (event) => {
     var count = this.state.count + 1;
     this.setState({ count });
 }
-
+DecreaseClick = (event) => {
+    event.preventDefault();
+    var count = this.state.count - 1;
+    if (count < 0)
+    {
+        count = 0;
+    }
+    this.setState({ count });
+}
     render() {
    
     
