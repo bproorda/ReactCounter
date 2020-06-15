@@ -21,15 +21,14 @@ IncreaseClick = (event) => {
 }
 
     render() {
-        // Re-rendering is automatic when state changes
-        // console.log('Rendering!', this.state );
-        // let passwordMessage = this.state.words.length > 10 ? 'Strong!' : 'Weak!';
+   
     
         return (
           <main>
             <h2>Main!</h2>
         <h3>the Count = {this.state.count}</h3>
-        <button onClick={this.IncreaseClick}>Click To Increase!</button>
+        <button id="increase" onClick={this.IncreaseClick}>Click To Increase!</button>
+        <button id="decrease" onClick={this.DecreaseClick}>Click To Decrease!</button>
 
           </main>
         )

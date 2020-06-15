@@ -13,4 +13,11 @@ main {
         border: 2px solid black;
         box-shadow: 10px 10px black;
     }
+    #decrease {
+        background-color: red;
+        margin-left: 20px;
+    }
+    #increase {
+        margin-right: 20px;
+    }
 }
