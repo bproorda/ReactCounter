@@ -21,33 +21,15 @@ class Main extends React.Component {
 IncreaseClick = (event) => {
     event.preventDefault();
     var previousCount = this.state.count;
-    var colorClass;
     var count = this.state.count + 1;
-    if (previousCount === 0 && count > 0)
-    {
-        colorClass = "aboveZero";
-        this.setState({colorClass});
-    } else if (count === 0)
-    {
-         colorClass = "atZero";
-        this.setState({colorClass});
-    }
+    this.colorChange(previousCount, count);
     this.setState({ count });
 }
 DecreaseClick = (event) => {
     event.preventDefault();
     var previousCount = this.state.count;
     var count = this.state.count - 1;
-    var colorClass;
-    if (previousCount === 0 && count < 0)
-    {
-        colorClass = "belowZero";
-        this.setState({colorClass});
-    } else if (count === 0)
-    {
-         colorClass = "atZero";
-        this.setState({colorClass});
-    }
+    this.colorChange(previousCount, count);
   
     this.setState({ count });
 }
@@ -61,7 +43,13 @@ handleChange(event) {
     event.preventDefault();
     var previousCount = this.state.count;
     var count = this.state.value;
-    var colorClass;
+   this.colorChange(previousCount, count);
+    this.setState({count});
+    var value = 0;
+    this.setState({value});
+  }
+  colorChange = (previousCount, count) => {
+      var colorClass;
     if (previousCount === 0 && count < 0)
     {
         colorClass = "belowZero";
@@ -76,9 +64,7 @@ handleChange(event) {
          colorClass = "atZero";
         this.setState({colorClass});
     }
-    this.setState({count});
-    var value = 0;
-    this.setState({value});
+
   }
 
     render() {
