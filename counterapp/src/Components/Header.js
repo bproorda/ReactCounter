@@ -5,8 +5,9 @@ function Header()
 {
     return (
         <header>
-        <h1>Welcome to React!</h1>
+        <h1>Welcome to My Counter!</h1>
         <nav>Links go here</nav>
+        <p>Push the Button!</p>
       </header>
     )
 }
