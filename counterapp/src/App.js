@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Components/Header';
 import Footer from  './Components/Footer';
+import Main from './Components/Main';
 import './App.css';
 
 // function App() {
@@ -24,13 +25,14 @@ import './App.css';
 //   );
 // }
 
+
 class App extends React.Component{
   render() {
     // <> is a Fragment; can't return multiple things
     return (
       <>
         <Header/>
-        {/* <Main />*/}
+        <Main />
         <Footer /> 
       </>
     );
