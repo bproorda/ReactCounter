@@ -12,6 +12,7 @@ class Main extends React.Component {
         this.state = {
           count: 0,
           value: 0,
+          colorClass: "atZero",
         };
         this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,16 +20,35 @@ class Main extends React.Component {
   
 IncreaseClick = (event) => {
     event.preventDefault();
+    var previousCount = this.state.count;
+    var colorClass;
     var count = this.state.count + 1;
+    if (previousCount === 0 && count > 0)
+    {
+        colorClass = "aboveZero";
+        this.setState({colorClass});
+    } else if (count === 0)
+    {
+         colorClass = "atZero";
+        this.setState({colorClass});
+    }
     this.setState({ count });
 }
 DecreaseClick = (event) => {
     event.preventDefault();
+    var previousCount = this.state.count;
     var count = this.state.count - 1;
-    if (count < 0)
+    var colorClass;
+    if (previousCount === 0 && count < 0)
     {
-        count = 0;
+        colorClass = "belowZero";
+        this.setState({colorClass});
+    } else if (count === 0)
+    {
+         colorClass = "atZero";
+        this.setState({colorClass});
     }
+  
     this.setState({ count });
 }
 
@@ -39,7 +59,23 @@ handleChange(event) {
 
   handleSubmit(event) {
     event.preventDefault();
+    var previousCount = this.state.count;
     var count = this.state.value;
+    var colorClass;
+    if (previousCount === 0 && count < 0)
+    {
+        colorClass = "belowZero";
+        this.setState({colorClass});
+    } else if (previousCount === 0 && count > 0) 
+    {
+        colorClass = "aboveZero";
+        this.setState({colorClass});
+    }
+     else if (count === 0)
+    {
+         colorClass = "atZero";
+        this.setState({colorClass});
+    }
     this.setState({count});
     var value = 0;
     this.setState({value});
@@ -51,7 +87,7 @@ handleChange(event) {
         return (
           <main>
             <h2>Main!</h2>
-        <h3>the Count = {this.state.count}</h3>
+        <h3 className={this.state.colorClass}>the Count = {this.state.count}</h3>
         <button id="increase" onClick={this.IncreaseClick}>Click To Increase!</button>
         <button id="decrease" onClick={this.DecreaseClick}>Click To Decrease!</button>
         <form onSubmit={this.handleSubmit}>
